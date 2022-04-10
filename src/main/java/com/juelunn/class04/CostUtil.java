@@ -58,7 +58,7 @@ public class CostUtil {
 		//判断接通时间是否在发生转换的日期
 		//判断结束时间是否在转换的日期
 		if(inDayLightSavingOfStartTime){
-			time -=60;//时间从2点转换到3点减去1h
+			time -= 60;//时间从2点转换到3点减去1h
 		}
 
 		//将位于转换的时间段内的时间都看作已经转换之后的
