@@ -59,15 +59,15 @@ public class CostUtil {
 	}
 
 	public Date StrToDate(String str) {
-		   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		   Date date = null;
-		   try {
-		    date = format.parse(str);
-		   } catch (ParseException e) {
-		    e.printStackTrace();
-		   }
-		   return date;
-		}
+	   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	   Date date = null;
+	   try {
+		date = format.parse(str);
+	   } catch (ParseException e) {
+		e.printStackTrace();
+	   }
+	   return date;
+	}
 	public String DateFormate(Date date){
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss E");
 		String sdate = format.format(date);
