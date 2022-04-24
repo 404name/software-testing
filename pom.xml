@@ -20,11 +20,48 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-maven</artifactId>
+            <version>1.4.11</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <finalName>JavademoIn7</finalName>
+
+
         <plugins>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.4.11</version>
+                <configuration>
+                    <targetClasses>
+                        <param>com.juelunn.class05</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>com.juelunn.class05</param>
+                    </targetTests>
+                    <!--                    <mutators>-->
+                    <!--                        <mutator>CONSTRUCTOR_CALLS</mutator>-->
+                    <!--                        <mutator>VOID_METHOD_CALLS</mutator>-->
+                    <!--                        <mutator>RETURN_VALS</mutator>-->
+                    <!--                        <mutator>NON_VOID_METHOD_CALLS</mutator>-->
+                    <!--                    </mutators>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>pit-report</id>
+                        <!-- optional, this example attached the goal into mvn test phase -->
+                        <phase>test</phase>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- 检测代码风格的插件 checkstyle（要在项目根目录下配置规则文件checkstyle.xml），然后使用mvn checkstyle::check命令验证-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -149,6 +186,14 @@
                             </limits>
                         </rule>
                     </rules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
 
